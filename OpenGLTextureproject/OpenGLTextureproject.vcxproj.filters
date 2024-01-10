@@ -67,15 +67,6 @@
     <Image Include="..\..\..\..\Downloads\plane.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="adinewphoto1-min.jpg">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="adinewphoto1-min1.jpg">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="adinewphoto1-min2.jpg">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="awesomeface.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>

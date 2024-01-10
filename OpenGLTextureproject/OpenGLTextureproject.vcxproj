@@ -153,9 +153,6 @@
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\plane.png" />
     <Image Include="..\..\TestOpenGL\TestOpenGL\container.jpg" />
-    <Image Include="adinewphoto1-min.jpg" />
-    <Image Include="adinewphoto1-min1.jpg" />
-    <Image Include="adinewphoto1-min2.jpg" />
     <Image Include="awesomeface.png" />
   </ItemGroup>
   <ItemGroup>
