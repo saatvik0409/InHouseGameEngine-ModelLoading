@@ -9,6 +9,7 @@
 #include <Camera.h>
 #include <Model.h>
 
+
 #include <stb_image.h>
 
 #include <iostream>
@@ -64,6 +65,7 @@ int main()
     glfwSetScrollCallback(window, scrollCallback);
 
     Shader ourShader("shader1.vert", "shader1.frag");
+    
     stbi_set_flip_vertically_on_load(true);
     Model ourModel1("Models/bag_model/backpack.obj");
     stbi_set_flip_vertically_on_load(false);
@@ -76,9 +78,13 @@ int main()
     Model ourModel4("Models/cwire/golden-lion-knocker-edit.obj");
     stbi_set_flip_vertically_on_load(false);
     Model ourModel5("Models/cycle/raptor.obj");
+    
+
+    //GameObject bag;
+    //bag.modelpath = "Models/bag_model/backpack.obj";
 
 
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     // render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -105,6 +111,8 @@ int main()
         ourShader.setMat4("projection", projection);
         ourShader.setMat4("view", view);
 
+
+        
         glm::mat4 model = glm::mat4(1.f);
         model = glm::translate(model, glm::vec3(1.0f, 0.0f, 0.0f)); // translate it right
         model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
@@ -138,6 +146,7 @@ int main()
         //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
         ourShader.setMat4("model", model);
         ourModel5.Draw(ourShader);
+        
 
         
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
