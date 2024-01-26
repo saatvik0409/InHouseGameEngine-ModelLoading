@@ -4,6 +4,12 @@
 #include <Shader_s.h>
 #include <Camera.h>
 #include <Model.h>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <map>
+#include <vector>
 using namespace std;
 
 Shader ourShader("shader1.vert", "shader1.frag");
