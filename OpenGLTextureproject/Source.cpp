@@ -1,6 +1,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <Windows.h>
+#include <tchar.h>
+#include <iostream>
+
 #include <glm/glm/glm.hpp>
 #include <glm/glm/gtc/matrix_transform.hpp>
 #include <glm/glm/gtc/type_ptr.hpp>
@@ -81,7 +85,30 @@ int main()
     */
 
     GameObject bag("dfwedews");
-    bag.modelpath = "Models/bag_model/backpack.obj";
+    OPENFILENAME ofn;
+    TCHAR szFile[260] = { 0 };
+
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(ofn);
+    ofn.hwndOwner = NULL;  // If you have a window handle, specify it here.
+    ofn.lpstrFile = szFile;
+    ofn.nMaxFile = sizeof(szFile) / sizeof(*szFile);
+    ofn.lpstrFilter = _T("Wavefront Object Files (*.obj)\0*.obj\0All Files (*.*)\0*.*\0");
+    ofn.nFilterIndex = 1;
+    ofn.lpstrFileTitle = NULL;
+    ofn.nMaxFileTitle = 0;
+    ofn.lpstrInitialDir = NULL;
+    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+    // Display the Open dialog box.
+    if (GetOpenFileName(&ofn) == TRUE) {
+        // The user selected a file. The selected file path is in szFile.
+        MessageBox(NULL, szFile, _T("Selected File"), MB_OK | MB_ICONINFORMATION);
+    } else {
+        // The user canceled the dialog.
+        MessageBox(NULL, _T("No file selected."), _T("Canceled"), MB_OK | MB_ICONEXCLAMATION);
+    }
+    bag.modelpath = szFile;
 
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
